@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" fill="#f0f0f0"/>
+  <rect x="16" y="16" width="96" height="72" fill="#4a90e2" rx="4"/>
+  <text x="64" y="52" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">WM</text>
+  <rect x="32" y="96" width="64" height="16" fill="#e2e2e2" rx="2"/>
+  <text x="64" y="108" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Watermark</text>
+</svg>

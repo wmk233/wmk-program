@@ -1,0 +1,7 @@
+{
+  "name": "Watermark App",
+  "version": "1.0.0",
+  "description": "A desktop application for adding watermarks to images",
+  "author": "Developer",
+  "license": "MIT"
+}
