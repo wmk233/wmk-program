@@ -466,7 +466,7 @@ class WatermarkApp:
         # 添加阴影效果
         if self.watermark_settings.get("shadow", False):
             shadow_offset = 2
-            draw.text((x + shadow_offset, y + shadow_offset), text, font=font, fill=(0, 0, 0, alpha//2))
+            draw.text((x + shadow_offset, y + shadow_offset), text, font=font, fill=(0, 0, 0, int(alpha//2)))
             
         # 添加描边效果
         if self.watermark_settings.get("stroke", False):
@@ -474,7 +474,7 @@ class WatermarkApp:
             for dx in [-1, 0, 1]:
                 for dy in [-1, 0, 1]:
                     if dx != 0 or dy != 0:
-                        draw.text((x + dx, y + dy), text, font=font, fill=(0, 0, 0, alpha//3))
+                        draw.text((x + dx, y + dy), text, font=font, fill=(0, 0, 0, int(alpha//3)))
                         
         # 绘制主要文本
         draw.text((x, y), text, font=font, fill=rgba)
@@ -499,6 +499,7 @@ class WatermarkApp:
             # 应用透明度
             opacity = self.watermark_settings["opacity"]
             if opacity < 100:
+                # 获取alpha通道并应用透明度
                 alpha = watermark.split()[3]  # 获取alpha通道
                 alpha = alpha.point(lambda p: int(p * opacity / 100))
                 watermark.putalpha(alpha)
