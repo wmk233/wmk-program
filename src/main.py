@@ -152,6 +152,9 @@ class WatermarkApp:
         self.text_entry = ttk.Entry(self.text_settings_frame)
         self.text_entry.pack(fill=tk.X, padx=5, pady=5)
         self.text_entry.insert(0, self.watermark_settings["text"])
+        # 绑定输入事件，当文字改变时更新预览
+        self.text_entry.bind('<KeyRelease>', self.on_text_change)
+        self.text_entry.bind('<FocusOut>', self.on_text_change)
         
         # 字体大小
         ttk.Label(self.text_settings_frame, text="字体大小:").pack(anchor=tk.W)
@@ -279,6 +282,11 @@ class WatermarkApp:
             self.color_label.config(text=color)
             self.update_preview()
             
+    def on_text_change(self, event=None):
+        """当文本输入框内容改变时调用"""
+        self.watermark_settings["text"] = self.text_entry.get()
+        self.update_preview()
+        
     def on_opacity_change(self, value):
         opacity = int(float(value))
         self.watermark_settings["opacity"] = opacity
